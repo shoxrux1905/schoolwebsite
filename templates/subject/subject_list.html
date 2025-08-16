@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subjects</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background: #007bff;
+      color: white;
+      text-transform: uppercase;
+    }
+    tr:hover {
+      background: #f1f1f1;
+    }
+    .btn {
+      padding: 6px 12px;
+      border: none;
+      border-radius: 4px;
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .btn-edit {
+      background-color: #28a745;
+    }
+    .btn-edit:hover {
+      background-color: #218838;
+    }
+    .btn-delete {
+      background-color: #dc3545;
+    }
+    .btn-delete:hover {
+      background-color: #c82333;
+    }
+    .top-actions {
+      text-align: right;
+      margin-bottom: 15px;
+    }
+    .btn-create {
+      background-color: #007bff;
+    }
+    .btn-create:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Subjects</h1>
+
+  <div class="top-actions">
+    <a href="{% url 'subject_create' %}" class="btn btn-create">➕ Add Subject</a>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for subject in subjects %}
+        <tr>
+          <td>{{ subject.name }}</td>
+          <td>
+            <a href="{% url 'subject_update' subject.pk %}" class="btn btn-edit">✏ Edit</a>
+            <a href="{% url 'subject_delete' subject.pk %}" class="btn btn-delete">🗑 Delete</a>
+          </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="2" style="text-align:center; color: #666;">No subjects found</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>

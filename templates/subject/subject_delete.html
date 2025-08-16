@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delete Subject</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f6f9; padding: 20px; }
+    .container {
+      max-width: 500px; margin: auto; background: #fff; padding: 20px;
+      border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    h1 { color: #dc3545; }
+    p { margin-bottom: 20px; color: #555; }
+    .btn {
+      padding: 10px 15px; border: none; border-radius: 4px; color: white;
+      cursor: pointer; text-decoration: none; margin: 0 5px;
+    }
+    .btn-delete { background: #dc3545; }
+    .btn-delete:hover { background: #c82333; }
+    .btn-cancel { background: #6c757d; }
+    .btn-cancel:hover { background: #5a6268; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Delete Subject</h1>
+    <p>Are you sure you want to delete <strong>{{ subject.name }}</strong>?</p>
+    <form method="POST">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-delete">Yes, Delete</button>
+      <a href="{% url 'subject_list' %}" class="btn btn-cancel">Cancel</a>
+    </form>
+  </div>
+</body>
+</html>
