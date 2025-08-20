@@ -47,6 +47,19 @@
       .btn-delete:hover {
         background-color: #d32f2f;
       }
+      .btn-back {
+        background-color: #ff6600;  /* bright orange */
+        color: white !important;   /* force white text */
+        font-weight: bold;
+        border-radius: 8px;
+        padding: 10px 20px;
+        text-decoration: none;     /* remove underline */
+        display: inline-block;
+      }
+      .btn-back:hover {
+        background-color: #e65c00; /* darker orange on hover */
+        color: #fff !important;
+      }
     </style>
   </head>
   <body>
@@ -54,6 +67,7 @@
 
     <div class="top-actions">
       <a href="{% url 'class_create' %}" class="btn btn-create">➕ Add Class</a>
+      <a href="{% url 'home' %}" class="btn btn-back mb-3">⬅ Back to Homepage</a>
     </div>
 
     <table>

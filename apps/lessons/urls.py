@@ -1,21 +1,9 @@
 from django.urls import path
 
 from apps.lessons.views import subject_create_view, subject_list_view, subject_update_view, subject_delete_view
-
-from apps.lessons.views.Teacher.TeacherCreate.views import teacher_create_view
-from apps.lessons.views.Teacher.TeacherDelete.views import teacher_delete_view
-from apps.lessons.views.Teacher.TeacherList.views import teacher_list_view
-from apps.lessons.views.Teacher.TeacherUpdate.views import teacher_update_view
-
-from apps.lessons.views.Class.ClassList.views import class_list_view
-from apps.lessons.views.Class.ClassCreate.views import class_create_view
-from apps.lessons.views.Class.ClassUpdate.views import class_update_view
-from apps.lessons.views.Class.ClassDelete.views import class_delete_view
-
-from apps.lessons.views.Student.StudentList.views import student_list_view
-from apps.lessons.views.Student.StudentCreate.views import student_create_view
-from apps.lessons.views.Student.StudentUpdate.views import student_update_view
-from apps.lessons.views.Student.StudentDelete.views import student_delete_view
+from apps.lessons.views import teacher_create_view, teacher_list_view, teacher_update_view, teacher_delete_view
+from apps.lessons.views import class_create_view, class_list_view, class_update_view, class_delete_view
+from apps.lessons.views import student_create_view, student_list_view, student_update_view, student_delete_view
 
 urlpatterns = [
     path('subjects/', subject_list_view, name='subject_list'),
