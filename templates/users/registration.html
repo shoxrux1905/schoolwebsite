@@ -1,23 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     {% if error %}
-        <p style="color: red;">{{ error }}</p>
+      <p style="color: red;">{{ error }}</p>
     {% endif %}
     {% if success %}
-        <p style="color: green;">{{ success }}</p>
+      <p style="color: green;">{{ success }}</p>
     {% endif %}
-    <form method="POST">
-        {% csrf_token %}
-        <input type="text" name="username">
-        <input type="password" name="password">
-        <input type="password" name="password2">
-        <input type="submit" name="Ro'yxatdan o'tish">
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      First name:<br />
+      <input type="text" name="first_name" /><br /><br />
+
+      Last name:<br />
+      <input type="text" name="last_name" /><br /><br />
+
+      Username:<br />
+      <input type="text" name="username" /><br /><br />
+
+      Email:<br />
+      <input type="email" name="email" /><br /><br />
+
+      Phone Number:<br />
+      <input type="text" name="phone_number" /><br /><br />
+
+      Address:<br />
+      <input type="text" name="address" /><br /><br />
+
+      Gender:<br />
+      <input type="radio" name="gender" value="MALE" />Male<br />
+      <input type="radio" name="gender" value="FEMALE" />Female<br /><br />
+
+      Date of Birth:<br />
+      <input type="date" name="date_of_birth" /><br /><br />
+
+      Shift:<br />
+      <select name="shift">
+        <option value="MORNING_SHIFT">Morning shift</option>
+        <option value="DAY_SHIFT">Day shift</option>
+        <option value="NIGHT_SHIFT">Night shift</option>
+      </select><br /><br />
+
+      Study Language:<br />
+      <select name="study_lang">
+        <option value="UZBEK">Uzbek</option>
+        <option value="RUSSIAN">Russian</option>
+        <option value="ENGLISH">English</option>
+      </select><br /><br />
+
+      Blood Group:<br />
+      <select name="blood_group">
+        <option value="A_POS">A+</option>
+        <option value="A_NEG">A-</option>
+        <option value="B_POS">B+</option>
+        <option value="B_NEG">B-</option>
+        <option value="AB_POS">AB+</option>
+        <option value="AB_NEG">AB-</option>
+        <option value="O_POS">O+</option>
+        <option value="O_NEG">O-</option>
+      </select><br /><br />
+
+      Profile Picture:<br />
+      <input type="file" name="pfp" /><br /><br />
+
+      Password:<br />
+      <input type="password" name="password" /><br /><br />
+
+      Confirm Password:<br />
+      <input type="password" name="password2" /><br /><br />
+
+      <input type="submit" value="Ro'yxatdan o'tish" />
     </form>
-</body>
+  </body>
 </html>
