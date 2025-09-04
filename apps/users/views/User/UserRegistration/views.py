@@ -1,5 +1,9 @@
 from django.shortcuts import redirect, render
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+
 from apps.users.models import User
+from apps.users.views.User.UserRegistration.serializer import UserRegistrationSerializer
 
 def user_student_registration_view(request) :
     """ registration """
@@ -60,3 +64,9 @@ def user_student_registration_view(request) :
         user.set_password(password)
         user.save()
         return redirect('login')
+    
+@api_view(['GET'])
+def user_registration_api_view(request):
+    users = User.objects.all()
+    serializer = UserRegistrationSerializer(users, many=True)
+    return Response(serializer.data)
